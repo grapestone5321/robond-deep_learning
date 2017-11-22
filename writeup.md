@@ -9,6 +9,69 @@ In this project, you will train a deep neural network to identify and track a ta
 
 # Writeup
 
+## Data Collection
+We have provided you with a starting dataset for this project. Download instructions can be found in the README for this project's repo. Alternatively, you can collect additional data of your own to improve your model. Check out the "Collecting Data" section in the Project Lesson in the Classroom for more details!
+
+## FCN Layers 
+In the Classroom, we discussed the different layers that constitute a fully convolutional network (FCN). The following code will introduce you to the functions that you need to build your semantic segmentation model.
+
+### Separable Convolutions
+The Encoder for your FCN will essentially require separable convolution layers, due to their advantages as explained in the classroom. The 1x1 convolution layer in the FCN, however, is a regular convolution. Implementations for both are provided below for your use. Each includes batch normalization with the ReLU activation function applied to the layers.
+
+### Bilinear Upsampling
+The following helper function implements the bilinear upsampling layer. Upsampling by a factor of 2 is generally recommended, but you can try out different factors as well. Upsampling is used in the decoder block of the FCN.
+
+## Build the Model 
+In the following cells, you will build an FCN to train a model to detect and locate the hero target within an image. The steps are:
+- Create an encoder_block 
+- Create a decoder_block 
+- Build the FCN consisting of encoder block(s), a 1x1 convolution, and decoder block(s). This step requires experimentation with different numbers of layers and filter sizes to build your model.
+
+### Encoder Block
+Create an encoder block that includes a separable convolution layer using the separable_conv2d_batchnorm() function. The filters parameter defines the size or depth of the output layer. For example, 32 or 64.
+
+### Decoder Block
+The decoder block is comprised of three parts:
+- A bilinear upsampling layer using the upsample_bilinear() function. The current recommended factor for upsampling is set to 2.
+- A layer concatenation step. This step is similar to skip connections. You will concatenate the upsampled small_ip_layer and the large_ip_layer.
+- Some (one or two) additional separable convolution layers to extract some more spatial information from prior layers.
+
+### Model
+Now that you have the encoder and decoder blocks ready, go ahead and build your FCN architecture!
+
+There are three steps:
+- Add encoder blocks to build the encoder layers. This is similar to how you added regular convolutional layers in your CNN lab.
+- Add a 1x1 Convolution layer using the conv2d_batchnorm() function. Remember that 1x1 Convolutions require a kernel and stride of 1.
+- Add decoder blocks for the decoder layers.
+
+## Training 
+The following cells will use the FCN you created and define an ouput layer based on the size of the processed image and the number of classes recognized. You will define the hyperparameters to compile and train your model.
+
+Please Note: For this project, the helper code in data_iterator.py will resize the copter images to 160x160x3 to speed up training.
+
+### Hyperparameters
+Define and tune your hyperparameters.
+- batch_size: number of training samples/images that get propagated through the network in a single pass.
+- num_epochs: number of times the entire training dataset gets propagated through the network.
+- steps_per_epoch: number of batches of training images that go through the network in 1 epoch. We have provided you with a default value. One recommended value to try would be based on the total number of images in training dataset divided by the batch_size.
+- validation_steps: number of batches of validation images that go through the network in 1 epoch. This is similar to steps_per_epoch, except validation_steps is for the validation dataset. We have provided you with a default value for this as well.
+- workers: maximum number of processes to spin up. This can affect your training speed and is dependent on your hardware. We have provided a recommended value to work with. 
+
+## Prediction 
+Now that you have your model trained and saved, you can make predictions on your validation dataset. These predictions can be compared to the mask images, which are the ground truth labels, to evaluate how well your model is doing under different conditions.
+
+There are three different predictions available from the helper code provided:
+- patrol_with_targ: Test how well the network can detect the hero from a distance.
+- patrol_non_targ: Test how often the network makes a mistake and identifies the wrong person as the target.
+- following_images: Test how well the network can identify the target while following them.
+
+The following cell will write predictions to files and return paths to the appropriate directories. The run_num parameter is used to define or group all the data for a particular model run. You can change it for different runs. For example, 'run_1', 'run_2' etc.
+
+Now lets look at your predictions, and compare them to the ground truth labels and original images. Run each of the following cells to visualize some sample images from the predictions in the validation set.
+
+## Evaluation 
+Evaluate your model! The following cells include several different scores to help you evaluate your model under the different conditions discussed during the Prediction step.
+
 ### 1. Provide a write-up document including all rubric items addressed in a clear and concise manner.
 
 - The write-up should include a statement and supporting figures / images that explain how each rubric item was addressed, and specifically where in the code each step was handled. The write-up should include a discussion of what worked, what didn't and how the project implementation could be improved going forward.
@@ -29,15 +92,6 @@ In this project, you will train a deep neural network to identify and track a ta
 
 - All configurable parameters should be explicitly stated and justified. 
 
-### Hyperparameters
-
-Define and tune your hyperparameters.
-
-- batch_size: number of training samples/images that get propagated through the network in a single pass.
-- num_epochs: number of times the entire training dataset gets propagated through the network.
-- steps_per_epoch: number of batches of training images that go through the network in 1 epoch. We have provided you with a default value. One recommended value to try would be based on the total number of images in training dataset divided by the batch_size.
-- validation_steps: number of batches of validation images that go through the network in 1 epoch. This is similar to steps_per_epoch, except validation_steps is for the validation dataset. We have provided you with a default value for this as well.
-- workers: maximum number of processes to spin up. This can affect your training speed and is dependent on your hardware. We have provided a recommended value to work with. 
 
 
 
