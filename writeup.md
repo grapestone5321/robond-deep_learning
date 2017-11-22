@@ -9,10 +9,10 @@ In this project, you will train a deep neural network to identify and track a ta
 
 # Writeup
 
-## Data Collection
+## 1. Data Collection
 A starting dataset has been provided for this project. Alternatively, additional data of my own to improve my model are collected.
 
-## FCN Layers 
+## 2. FCN Layers 
 In the Classroom, we discussed the different layers that constitute a fully convolutional network (FCN). The following code will introduce you to the functions that you need to build your semantic segmentation model.
 
 ### Separable Convolutions
@@ -21,7 +21,7 @@ The Encoder for your FCN will essentially require separable convolution layers, 
 ### Bilinear Upsampling
 The following helper function implements the bilinear upsampling layer. Upsampling by a factor of 2 is generally recommended, but you can try out different factors as well. Upsampling is used in the decoder block of the FCN.
 
-## Build the Model 
+## 3. Build the Model 
 In the following cells, you will build an FCN to train a model to detect and locate the hero target within an image. The steps are:
 - Create an encoder_block 
 - Create a decoder_block 
@@ -44,7 +44,7 @@ There are three steps:
 - Add a 1x1 Convolution layer using the conv2d_batchnorm() function. Remember that 1x1 Convolutions require a kernel and stride of 1.
 - Add decoder blocks for the decoder layers.
 
-## Training 
+## 4. Training 
 The following cells will use the FCN you created and define an ouput layer based on the size of the processed image and the number of classes recognized. You will define the hyperparameters to compile and train your model.
 
 Please Note: For this project, the helper code in data_iterator.py will resize the copter images to 160x160x3 to speed up training.
@@ -57,7 +57,7 @@ Define and tune your hyperparameters.
 - validation_steps: number of batches of validation images that go through the network in 1 epoch. This is similar to steps_per_epoch, except validation_steps is for the validation dataset. We have provided you with a default value for this as well.
 - workers: maximum number of processes to spin up. This can affect your training speed and is dependent on your hardware. We have provided a recommended value to work with. 
 
-## Prediction 
+## 5. Prediction 
 Now that you have your model trained and saved, you can make predictions on your validation dataset. These predictions can be compared to the mask images, which are the ground truth labels, to evaluate how well your model is doing under different conditions.
 
 There are three different predictions available from the helper code provided:
@@ -69,7 +69,7 @@ The following cell will write predictions to files and return paths to the appro
 
 Now lets look at your predictions, and compare them to the ground truth labels and original images. Run each of the following cells to visualize some sample images from the predictions in the validation set.
 
-## Evaluation 
+## 6. Evaluation 
 Evaluate your model! The following cells include several different scores to help you evaluate your model under the different conditions discussed during the Prediction step.
 
 ### 1. Provide a write-up document including all rubric items addressed in a clear and concise manner.
