@@ -10,7 +10,7 @@ In this project, you will train a deep neural network to identify and track a ta
 # Writeup
 
 ## Data Collection
-We have provided you with a starting dataset for this project. Download instructions can be found in the README for this project's repo. Alternatively, you can collect additional data of your own to improve your model. Check out the "Collecting Data" section in the Project Lesson in the Classroom for more details!
+A starting dataset has been provided for this project. Alternatively, additional data of my own to improve my model are collected.
 
 ## FCN Layers 
 In the Classroom, we discussed the different layers that constitute a fully convolutional network (FCN). The following code will introduce you to the functions that you need to build your semantic segmentation model.
@@ -109,12 +109,6 @@ Evaluate your model! The following cells include several different scores to hel
 ### 6. The student displays a solid understanding of the limitations to the neural network with the given data chosen for various follow-me scenarios which are conveyed in the write-up. 
 
 - The student is able to clearly articulate whether this model and data would work well for following another object (dog, cat, car, etc.) instead of a human and if not, what changes would be required. 
-
-
-
-
-
-
 
 ### Model
 
