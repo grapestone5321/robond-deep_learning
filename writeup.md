@@ -10,7 +10,7 @@ In this project, you will train a deep neural network to identify and track a ta
 # Writeup
 
 ## 1. Data Collection
-A starting dataset has been provided for this project. Alternatively, additional data of my own to improve my model are collected.
+A starting dataset has been provided for this project. Additional data of my own are also collected to improve my model. The total number of images in training/validation dataset are as follows:
 
 number_of_ training_images = 5075
 
