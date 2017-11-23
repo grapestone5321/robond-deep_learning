@@ -66,19 +66,50 @@ Hyperparameters are defined and tuned.
 - workers: maximum number of processes to spin up. This can affect our training speed and is dependent on our hardware. 
 
 ## 5. Prediction 
-Now that you have your model trained and saved, you can make predictions on your validation dataset. These predictions can be compared to the mask images, which are the ground truth labels, to evaluate how well your model is doing under different conditions.
+Now that I have my model trained and saved, I make predictions on my validation dataset. These predictions can be compared to the mask images, which are the ground truth labels, to evaluate how well my model is doing under different conditions.
 
 There are three different predictions available from the helper code provided:
 - patrol_with_targ: Test how well the network can detect the hero from a distance.
 - patrol_non_targ: Test how often the network makes a mistake and identifies the wrong person as the target.
 - following_images: Test how well the network can identify the target while following them.
 
-The following cell will write predictions to files and return paths to the appropriate directories. The run_num parameter is used to define or group all the data for a particular model run. You can change it for different runs. For example, 'run_1', 'run_2' etc.
+The predictions are written to files and return paths to the appropriate directories. Now lets look at my predictions, and compare them to the ground truth labels and original images. Some sample images are visualized from the predictions in the validation set.
 
-Now lets look at your predictions, and compare them to the ground truth labels and original images. Run each of the following cells to visualize some sample images from the predictions in the validation set.
+### images while following the target:
+
+### images while at patrol without target:
+
+### images while at patrol with target
+
 
 ## 6. Evaluation 
-Evaluate your model! The following cells include several different scores to help you evaluate your model under the different conditions discussed during the Prediction step.
+My model is evaluated. Several different scores are included to evaluate my model under the different conditions discussed during the Prediction step.
+
+## Scoring ##
+
+To score the network on the Follow Me task, two types of error are measured. First the intersection over the union for the pixelwise classifications is computed for the target channel. 
+
+In addition to this we determine whether the network detected the target person or not. If more then 3 pixels have probability greater then 0.5 of being the target person then this counts as the network guessing the target is in the image. 
+
+We determine whether the target is actually in the image by whether there are more then 3 pixels containing the target in the label mask.
+
+Using the above the number of detection true_positives, false positives, false negatives are counted. 
+
+**How the Final score is Calculated**
+
+The final score is the pixelwise `average_IoU*(n_true_positive/(n_true_positive+n_false_positive+n_false_negative))` on data similar to that provided in sample_evaulation_data
+
+**Ideas for Improving your Score**
+
+Collect more data from the sim. Look at the predictions think about what the network is getting wrong, then collect data to counteract this. Or improve your network architecture and hyperparameters. 
+
+**Obtaining a Leaderboard Score**
+
+Share your scores in slack, and keep a tally in a pinned message. Scores should be computed on the sample_evaluation_data. This is for fun, your grade will be determined on unreleased data. If you use the sample_evaluation_data to train the network, it will result in inflated scores, and you will not be able to determine how your network will actually perform when evaluated to determine your grade
+
+### The neural network achieves a minimum level of accuracy for the network implemented. 
+The neural network obtains an accuracy greater than or equal to 40% (0.40) using the Intersection over Union (IoU) metric.
+
 
 ### 1. Provide a write-up document including all rubric items addressed in a clear and concise manner.
 
@@ -99,10 +130,6 @@ Evaluate your model! The following cells include several different scores to hel
      Epoch. Learning Rate. Batch Size. Etc. 
 
 - All configurable parameters should be explicitly stated and justified. 
-
-
-
-
 
 ### 4. The student has a clear understanding and is able to identify the use of various techniques and concepts in network layers indicated by the write-up.
 
