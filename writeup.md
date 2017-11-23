@@ -104,7 +104,7 @@ The predictions are written to files and return paths to the appropriate directo
 ![deep_learning|FCN](https://cldup.com/wbwKbPM8uJ.png)
 ### images while at patrol without target:
 ![deep_learning|FCN](https://cldup.com/wbwKbPM8uJ.png)
-### images while at patrol with target
+### images while at patrol with target:
 ![deep_learning|FCN](https://cldup.com/wbwKbPM8uJ.png)
 
 ## 6. Evaluation 
@@ -120,7 +120,7 @@ Using the above the number of detection true_positives, false positives, false n
 The final score is the pixelwise `average_IoU*(n_true_positive/(n_true_positive+n_false_positive+n_false_negative))` on data similar to that provided in sample_evaulation_data
 
 ### The neural network achieves a minimum level of accuracy for the network implemented: 
-The final score is 43%. The accuracy greater than or equal to 40% (0.40) is obtained using the Intersection over Union (IoU) metric.
+My final score is 43%. The accuracy greater than or equal to 40% (0.40) is obtained using the Intersection over Union (IoU) metric.
 
 
 ### 1. Provide a write-up document including all rubric items addressed in a clear and concise manner.
