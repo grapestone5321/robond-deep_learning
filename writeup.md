@@ -12,6 +12,10 @@ In this project, you will train a deep neural network to identify and track a ta
 ## 1. Data Collection
 A starting dataset has been provided for this project. Alternatively, additional data of my own to improve my model are collected.
 
+number_of_ training_images = 5075
+
+number_of_validation_images = 1896
+
 ## 2. FCN Layers 
 In the Classroom, we discussed the different layers that constitute a fully convolutional network (FCN). The following code will introduce you to the functions that you need to build your semantic segmentation model.
 
