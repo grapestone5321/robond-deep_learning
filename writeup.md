@@ -49,17 +49,21 @@ There are three steps:
 - Add decoder blocks for the decoder layers.
 
 ## 4. Training 
-The following cells will use the FCN you created and define an ouput layer based on the size of the processed image and the number of classes recognized. You will define the hyperparameters to compile and train your model.
-
-Please Note: For this project, the helper code in data_iterator.py will resize the copter images to 160x160x3 to speed up training.
+The FCN is used and an ouput layer is defined based on the size of the processed image and the number of classes recognized. The hyperparameters are defined to compile and train your model.
 
 ### Hyperparameters
-Define and tune your hyperparameters.
+Hyperparameters are defined and tuned.
 - batch_size: number of training samples/images that get propagated through the network in a single pass.
 - num_epochs: number of times the entire training dataset gets propagated through the network.
-- steps_per_epoch: number of batches of training images that go through the network in 1 epoch. We have provided you with a default value. One recommended value to try would be based on the total number of images in training dataset divided by the batch_size.
-- validation_steps: number of batches of validation images that go through the network in 1 epoch. This is similar to steps_per_epoch, except validation_steps is for the validation dataset. We have provided you with a default value for this as well.
-- workers: maximum number of processes to spin up. This can affect your training speed and is dependent on your hardware. We have provided a recommended value to work with. 
+- steps_per_epoch: number of batches of training images that go through the network in 1 epoch. One recommended value to try would be based on the total number of images in training dataset divided by the batch_size.
+
+steps_per_epoch = number_of_ training_images/batch_size
+
+- validation_steps: number of batches of validation images that go through the network in 1 epoch. This is similar to steps_per_epoch, except validation_steps is for the validation dataset.
+
+validation_steps = number_of_validation_images/batch_size
+
+- workers: maximum number of processes to spin up. This can affect our training speed and is dependent on our hardware. 
 
 ## 5. Prediction 
 Now that you have your model trained and saved, you can make predictions on your validation dataset. These predictions can be compared to the mask images, which are the ground truth labels, to evaluate how well your model is doing under different conditions.
