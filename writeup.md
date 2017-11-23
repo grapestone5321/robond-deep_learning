@@ -17,13 +17,13 @@ number_of_ training_images = 5075
 number_of_validation_images = 1896
 
 ## 2. FCN Layers 
-In the Classroom, we discussed the different layers that constitute a fully convolutional network (FCN). The following code will introduce you to the functions that you need to build your semantic segmentation model.
+In the Classroom, we discussed the different layers that constitute a fully convolutional network (FCN). We need the functions to build our semantic segmentation model.
 
 ### Separable Convolutions
-The Encoder for your FCN will essentially require separable convolution layers, due to their advantages as explained in the classroom. The 1x1 convolution layer in the FCN, however, is a regular convolution. Implementations for both are provided below for your use. Each includes batch normalization with the ReLU activation function applied to the layers.
+The Encoder for our FCN essentially require separable convolution layers. The 1x1 convolution layer in the FCN, however, is a regular convolution. Implementations for both are provided for our use. Each includes batch normalization with the ReLU activation function applied to the layers.
 
 ### Bilinear Upsampling
-The following helper function implements the bilinear upsampling layer. Upsampling by a factor of 2 is generally recommended, but you can try out different factors as well. Upsampling is used in the decoder block of the FCN.
+The helper function implements the bilinear upsampling layer. Upsampling by a factor of 2 is generally recommended. Upsampling is used in the decoder block of the FCN.
 
 ## 3. Build the Model 
 In the following cells, you will build an FCN to train a model to detect and locate the hero target within an image. The steps are:
