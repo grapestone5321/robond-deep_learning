@@ -55,6 +55,8 @@ There are three steps:
 - Add a 1x1 Convolution layer using the conv2d_batchnorm() function. 1x1 Convolutions require a kernel and stride of 1.
 - Add decoder blocks for the decoder layers.
 
+I used three layers for encoder and decoder. Three layers seem to be sufficient to obtain the target score.
+
 ## 4. Training 
 The FCN is used and an ouput layer is defined based on the size of the processed image and the number of classes recognized. The hyperparameters are defined to compile and train your model.
 
