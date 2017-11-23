@@ -94,8 +94,8 @@ Using the above the number of detection true_positives, false positives, false n
 
 The final score is the pixelwise `average_IoU*(n_true_positive/(n_true_positive+n_false_positive+n_false_negative))` on data similar to that provided in sample_evaulation_data
 
-### The neural network achieves a minimum level of accuracy for the network implemented. 
-The neural network obtains an accuracy greater than or equal to 40% (0.40) using the Intersection over Union (IoU) metric.
+### The neural network achieves a minimum level of accuracy for the network implemented: 
+An accuracy greater than or equal to 40% (0.40) is obtained using the Intersection over Union (IoU) metric.
 
 
 ### 1. Provide a write-up document including all rubric items addressed in a clear and concise manner.
