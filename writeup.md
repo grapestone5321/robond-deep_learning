@@ -34,7 +34,7 @@ The helper function implements the bilinear upsampling layer. Upsampling by a fa
 
 ## 3. Build the Model 
 
-![deep_learning|FCN](https://cldup.com/ha412JSpuD.png)
+![deep_learning|FCN](https://cldup.com/wbwKbPM8uJ.png)
 
 An FCN is built to train a model to detect and locate the hero target within an image. The steps are:
 - Create an encoder_block 
