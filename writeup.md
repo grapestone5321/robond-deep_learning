@@ -57,6 +57,21 @@ There are three steps:
 
 I used three layers for encoder and decoder. Three layers seem to be sufficient to obtain the target score.
 
+```
+def fcn_model(inputs, num_classes):
+    
+    # TODO Add Encoder Blocks. 
+    # Remember that with each encoder layer, the depth of your model (the number of filters) increases.
+
+    # TODO Add 1x1 Convolution layer using conv2d_batchnorm().
+    
+    # TODO: Add the same number of Decoder Blocks as the number of Encoder Blocks
+    
+    
+    # The function returns the output layer of your model. "x" is the final layer obtained from the last decoder_block()
+    return layers.Conv2D(num_classes, 1, activation='softmax', padding='same')(x)
+```
+
 ## 4. Training 
 The FCN is used and an ouput layer is defined based on the size of the processed image and the number of classes recognized. The hyperparameters are defined to compile and train your model.
 
