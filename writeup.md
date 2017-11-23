@@ -26,26 +26,26 @@ The Encoder for our FCN essentially require separable convolution layers. The 1x
 The helper function implements the bilinear upsampling layer. Upsampling by a factor of 2 is generally recommended. Upsampling is used in the decoder block of the FCN.
 
 ## 3. Build the Model 
-In the following cells, you will build an FCN to train a model to detect and locate the hero target within an image. The steps are:
+An FCN is built to train a model to detect and locate the hero target within an image. The steps are:
 - Create an encoder_block 
 - Create a decoder_block 
 - Build the FCN consisting of encoder block(s), a 1x1 convolution, and decoder block(s). This step requires experimentation with different numbers of layers and filter sizes to build your model.
 
 ### Encoder Block
-Create an encoder block that includes a separable convolution layer using the separable_conv2d_batchnorm() function. The filters parameter defines the size or depth of the output layer. For example, 32 or 64.
+An encoder block includes a separable convolution layer using the separable_conv2d_batchnorm() function. The filters parameter defines the size or depth of the output layer. For example, 32 or 64.
 
 ### Decoder Block
 The decoder block is comprised of three parts:
 - A bilinear upsampling layer using the upsample_bilinear() function. The current recommended factor for upsampling is set to 2.
-- A layer concatenation step. This step is similar to skip connections. You will concatenate the upsampled small_ip_layer and the large_ip_layer.
+- A layer concatenation step. This step is similar to skip connections. I concatenate the upsampled small_ip_layer and the large_ip_layer.
 - Some (one or two) additional separable convolution layers to extract some more spatial information from prior layers.
 
 ### Model
-Now that you have the encoder and decoder blocks ready, go ahead and build your FCN architecture!
+My FCN architecture is built.
 
 There are three steps:
-- Add encoder blocks to build the encoder layers. This is similar to how you added regular convolutional layers in your CNN lab.
-- Add a 1x1 Convolution layer using the conv2d_batchnorm() function. Remember that 1x1 Convolutions require a kernel and stride of 1.
+- Add encoder blocks to build the encoder layers.
+- Add a 1x1 Convolution layer using the conv2d_batchnorm() function. 1x1 Convolutions require a kernel and stride of 1.
 - Add decoder blocks for the decoder layers.
 
 ## 4. Training 
