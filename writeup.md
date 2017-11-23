@@ -33,6 +33,9 @@ The Encoder for our FCN essentially require separable convolution layers. The 1x
 The helper function implements the bilinear upsampling layer. Upsampling by a factor of 2 is generally recommended. Upsampling is used in the decoder block of the FCN.
 
 ## 3. Build the Model 
+
+![deep_learning|FCN](https://cldup.com/ha412JSpuD.png)
+
 An FCN is built to train a model to detect and locate the hero target within an image. The steps are:
 - Create an encoder_block 
 - Create a decoder_block 
