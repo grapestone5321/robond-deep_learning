@@ -62,11 +62,19 @@ def fcn_model(inputs, num_classes):
     
     # TODO Add Encoder Blocks. 
     # Remember that with each encoder layer, the depth of your model (the number of filters) increases.
-
+    encoder_layer1 = encoder_block(inputs, filters=32, strides=2)
+    encoder_layer2 = encoder_block(encoder_layer1, filters=64, strides=2)
+    encoder_layer3 = encoder_block(encoder_layer2, filters=128, strides=2)
+    
     # TODO Add 1x1 Convolution layer using conv2d_batchnorm().
+    mid_layer = conv2d_batchnorm(encoder_layer3, filters=8, kernel_size=1, strides=1)
     
     # TODO: Add the same number of Decoder Blocks as the number of Encoder Blocks
+    decoder_layer1 = decoder_block(mid_layer, encoder_layer2, filters=128)
+    decoder_layer2 = decoder_block(decoder_layer1, encoder_layer1, filters=64)
+    decoder_layer3 = decoder_block(decoder_layer2, inputs, filters=32)   
     
+    x = decoder_layer3    
     
     # The function returns the output layer of your model. "x" is the final layer obtained from the last decoder_block()
     return layers.Conv2D(num_classes, 1, activation='softmax', padding='same')(x)
