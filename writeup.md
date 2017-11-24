@@ -142,9 +142,9 @@ The final score is the pixelwise `average_IoU*(n_true_positive/(n_true_positive+
 ### The neural network achieves a minimum level of accuracy for the network implemented: 
 My final score is 43% (batch_size=16, num_epochs=20). The accuracy greater than or equal to 40% (0.40) is obtained using the Intersection over Union (IoU) metric.
 
-The final score is 39%  (batch_size=16, num_epochs=10). 
+In the case of num_epochs=10, the final score is 39%  (batch_size=16). 
 
-The final score is 37%  (batch_size=32, num_epochs=20).
+In the case of batch_size=32, the final score is 37%  (num_epochs=20).
 
 ### 1. Provide a write-up document including all rubric items addressed in a clear and concise manner.
 
