@@ -97,6 +97,15 @@ Hyperparameters are defined and tuned.
 
 - workers: maximum number of processes to spin up. This can affect our training speed and is dependent on our hardware. 
 
+```
+learning_rate = 0.005
+batch_size = 16
+num_epochs = 20
+steps_per_epoch = 300
+validation_steps = 100
+workers = 4
+```
+
 ### training curves:
 ![deep_learning|training](https://cldup.com/seigdzIv9O.png)
 
