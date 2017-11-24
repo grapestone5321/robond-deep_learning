@@ -98,7 +98,7 @@ Hyperparameters are defined and tuned.
 - workers: maximum number of processes to spin up. This can affect our training speed and is dependent on our hardware. 
 
 ### training curves:
-![deep_learning|training](https://cldup.com/wbwKbPM8uJ.png)
+![deep_learning|training](https://cldup.com/seigdzIv9O.png)
 
 ## 5. Prediction 
 Now that I have my model trained and saved, I make predictions on my validation dataset. These predictions can be compared to the mask images, which are the ground truth labels, to evaluate how well my model is doing under different conditions.
