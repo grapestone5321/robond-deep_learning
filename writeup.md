@@ -122,9 +122,9 @@ The predictions are written to files and return paths to the appropriate directo
 ### images while following the target:
 ![deep_learning|following_the_target](https://cldup.com/rHDoHE4DeT.png)
 ### images while at patrol without target:
-![deep_learning|FCN](https://cldup.com/wbwKbPM8uJ.png)
+![deep_learning|patrol_without_target](https://cldup.com/92PMxe5Jn0.png)
 ### images while at patrol with target:
-![deep_learning|FCN](https://cldup.com/wbwKbPM8uJ.png)
+![deep_learning|patrol_with_target](https://cldup.com/JnQmqmJ7Gb.png)
 
 ## 6. Evaluation 
 My model is evaluated. Several different scores are included to evaluate my model under the different conditions discussed during the Prediction step.
