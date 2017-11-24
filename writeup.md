@@ -112,6 +112,7 @@ workers = 4
 ## 5. Prediction 
 Now that I have my model trained and saved, I make predictions on my validation dataset. These predictions can be compared to the mask images, which are the ground truth labels, to evaluate how well my model is doing under different conditions.
 
+
 There are three different predictions available from the helper code provided:
 - patrol_with_targ: Test how well the network can detect the hero from a distance.
 - patrol_non_targ: Test how often the network makes a mistake and identifies the wrong person as the target.
@@ -139,8 +140,11 @@ Using the above the number of detection true_positives, false positives, false n
 The final score is the pixelwise `average_IoU*(n_true_positive/(n_true_positive+n_false_positive+n_false_negative))` on data similar to that provided in sample_evaulation_data
 
 ### The neural network achieves a minimum level of accuracy for the network implemented: 
-My final score is 43%. The accuracy greater than or equal to 40% (0.40) is obtained using the Intersection over Union (IoU) metric.
+My final score is 43% (batch_size=16, num_epochs=20). The accuracy greater than or equal to 40% (0.40) is obtained using the Intersection over Union (IoU) metric.
 
+The final score is 39%  (batch_size=16, num_epochs=10). 
+
+The final score is 37%  (batch_size=32, num_epochs=20).
 
 ### 1. Provide a write-up document including all rubric items addressed in a clear and concise manner.
 
