@@ -1,6 +1,6 @@
 # Writeup
 
-## Introduction
+## 1. Introduction
 
 ### Deep Learning Project ##
 
@@ -13,14 +13,14 @@ In this project, you will train a deep neural network to identify and track a ta
 4. Continue to experiment with the training data and network until you attain the score you desire.
 5. Once you are comfortable with performance on the training dataset, see how it performs in live simulation! 
 
-## 1. Data Collection
+## 2. Data Collection
 A starting dataset has been provided for this project. Additional data of my own are also collected to improve my model. The total number of images in training/validation dataset are as follows:
 
 number_of_ training_images = 5075
 
 number_of_validation_images = 1896
 
-## 2. FCN Layers 
+## 3. FCN Layers 
 In the Classroom, we discussed the different layers that constitute a fully convolutional network (FCN). We need the functions to build our semantic segmentation model.
 
 ### Separable Convolutions
@@ -29,7 +29,7 @@ The Encoder for our FCN essentially require separable convolution layers. The 1x
 ### Bilinear Upsampling
 The helper function implements the bilinear upsampling layer. Upsampling by a factor of 2 is generally recommended. Upsampling is used in the decoder block of the FCN.
 
-## 3. Build the Model 
+## 4. Build the Model 
 
 ![deep_learning|FCN](https://cldup.com/wbwKbPM8uJ.png)
 
@@ -80,7 +80,7 @@ def fcn_model(inputs, num_classes):
     return layers.Conv2D(num_classes, 1, activation='softmax', padding='same')(x)
 ```
 
-## 4. Training 
+## 5. Training 
 The FCN is used and an ouput layer is defined based on the size of the processed image and the number of classes recognized. The hyperparameters are defined to compile and train your model.
 
 ### Hyperparameters
@@ -109,7 +109,7 @@ workers = 4
 ### training curves:
 ![deep_learning|training](https://cldup.com/seigdzIv9O.png)
 
-## 5. Prediction 
+## 6. Prediction 
 Now that I have my model trained and saved, I make predictions on my validation dataset. These predictions can be compared to the mask images, which are the ground truth labels, to evaluate how well my model is doing under different conditions.
 
 
@@ -127,7 +127,7 @@ The predictions are written to files and return paths to the appropriate directo
 ### images while at patrol with target:
 ![deep_learning|patrol_with_target](https://cldup.com/JnQmqmJ7Gb.png)
 
-## 6. Evaluation 
+## 7. Evaluation 
 My model is evaluated. Several different scores are included to evaluate my model under the different conditions discussed during the Prediction step.
 
 ### Scoring
