@@ -111,7 +111,7 @@ There are three different predictions available from the helper code provided:
 The predictions are written to files and return paths to the appropriate directories. Now lets look at my predictions, and compare them to the ground truth labels and original images. Some sample images are visualized from the predictions in the validation set.
 
 ### images while following the target:
-![deep_learning|FCN](https://cldup.com/wbwKbPM8uJ.png)
+![deep_learning|following_the_target](https://cldup.com/rHDoHE4DeT.png)
 ### images while at patrol without target:
 ![deep_learning|FCN](https://cldup.com/wbwKbPM8uJ.png)
 ### images while at patrol with target:
