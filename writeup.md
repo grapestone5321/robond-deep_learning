@@ -140,8 +140,8 @@ Using the above the number of detection true_positives, false positives, false n
 The final score is the pixelwise `average_IoU*(n_true_positive/(n_true_positive+n_false_positive+n_false_negative))` on data similar to that provided in sample_evaulation_data
 
 ### The neural network achieves a minimum level of accuracy for the network implemented: 
-In the case of batch_size=32, the final score is 37%  (num_epochs=20).
+In the case of batch_size=32 and num_epochs=20, the final score is 37%.
 
-In the case of num_epochs=10, the final score is 39%  (batch_size=16).
+In the case of batch_size=16 and num_epochs=10, the final score is 39%.
 
 My final score is 43% (batch_size=16, num_epochs=20). The accuracy greater than or equal to 40% (0.40) is obtained using the Intersection over Union (IoU) metric.
