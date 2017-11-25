@@ -148,4 +148,4 @@ My final score is 43% (batch_size=16, num_epochs=20). The accuracy greater than 
 ### Limitations to the neural network with the given data chosen for various follow-me scenarios. 
 This model and data would not work well for following another object (dog, cat, car, etc.) instead of a human. Some changes would be required.
 - Additional data would be required to discriminate new object from others, and the network needs to train again using those images. 
-- Add an additional output node for this new object, and add labels to training date with this label.
+- Add an additional output node for this new object, and add labels to training data with this label.
