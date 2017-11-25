@@ -112,7 +112,6 @@ workers = 4
 ## 6. Prediction 
 Now that I have my model trained and saved, I make predictions on my validation dataset. These predictions can be compared to the mask images, which are the ground truth labels, to evaluate how well my model is doing under different conditions.
 
-
 There are three different predictions available from the helper code provided:
 - patrol_with_targ: Test how well the network can detect the hero from a distance.
 - patrol_non_targ: Test how often the network makes a mistake and identifies the wrong person as the target.
@@ -146,8 +145,7 @@ In the case of batch_size=16 and num_epochs=10, the final score is 39%.
 
 My final score is 43% (batch_size=16, num_epochs=20). The accuracy greater than or equal to 40% (0.40) is obtained using the Intersection over Union (IoU) metric.
 
-The student displays a solid understanding of the limitations to the neural network with the given data chosen for various follow-me scenarios which are conveyed in the write-up. 
-
-The student is able to clearly articulate whether this model and data would work well for following another object (dog, cat, car, etc.) instead of a human and if not, what changes would be required. 
-
-
+### Limitations to the neural network with the given data chosen for various follow-me scenarios. 
+This model and data would not work well for following another object (dog, cat, car, etc.) instead of a human. Some changes would be required.
+- Additional data would be required to discriminate new object from others, and the network needs to train again using those images. 
+- Add an additional output node for this new object, and add labels to training date with this label.
