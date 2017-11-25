@@ -145,3 +145,9 @@ In the case of batch_size=32 and num_epochs=20, the final score is 37%.
 In the case of batch_size=16 and num_epochs=10, the final score is 39%.
 
 My final score is 43% (batch_size=16, num_epochs=20). The accuracy greater than or equal to 40% (0.40) is obtained using the Intersection over Union (IoU) metric.
+
+The student displays a solid understanding of the limitations to the neural network with the given data chosen for various follow-me scenarios which are conveyed in the write-up. 
+
+The student is able to clearly articulate whether this model and data would work well for following another object (dog, cat, car, etc.) instead of a human and if not, what changes would be required. 
+
+
