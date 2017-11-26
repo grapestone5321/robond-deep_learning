@@ -39,7 +39,7 @@ A 1x1 convolution is essentially convolving with a set of filters of dimensions:
 - stride = 1, and 
 - zero (same) padding. 
 
-A 1x1 convolution is applied to the output of a regular convolution. Let's assume that the regular convolution output is of dimensions 7x7x20 (HxWxD). These dimensions become the input to the 1x1 convolution with a filter depth of 5. The dimension of the output layer of the 1x1 convolution is 7x7x5
+A 1x1 convolution is applied to the output of a regular convolution. Let's assume that the regular convolution output is of dimensions 7x7x20 (HxWxD). These dimensions become the input to the 1x1 convolution with a filter depth of 5. Then the dimension of the output layer of the 1x1 convolution is 7x7x5.
 
 1x1 convolution helped in reducing the dimensionality of the layer. A fully-connected layer of the same size would result in the same number of features. However, replacement of fully-connected layers with convolutional layers presents an added advantage that during inference (testing your model), you can feed images of any size into your trained network.
 
