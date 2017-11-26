@@ -23,25 +23,27 @@ number_of_validation_images = 1896
 ## 3. FCN Layers 
 In the Classroom, we discussed the different layers that constitute a fully convolutional network (FCN). We need the functions to build our semantic segmentation model.
 
-### Separable Convolutions
-The Encoder for our FCN essentially require separable convolution layers. The 1x1 convolution layer in the FCN, however, is a regular convolution. Implementations for both are provided for our use. Each includes batch normalization with the ReLU activation function applied to the layers.
-
-### Bilinear Upsampling
-The helper function implements the bilinear upsampling layer. Upsampling by a factor of 2 is generally recommended. Upsampling is used in the decoder block of the FCN.
+### Fully convolutional networks (FCNs)
+While doing the convolution, they preserve the spatial information throughout the entire network.
 
 ### 1x1 Convolutions
 We covered how, in TensorFlow, the output shape of a convolutional layer is a 4D tensor. However, when we wish to feed the output of a convolutional layer into a fully connected layer, we flatten it into a 2D tensor. This results in the loss of spatial information, because no information about the location of the pixels is preserved.
 
 We can avoid that by using 1x1 convolutions.
 
-1x1 convolution helped in reducing the dimensionality of the layer. A fully-connected layer of the same size would result in the same number of features. However, replacement of fully-connected layers with convolutional layers presents an added advantage that during inference (testing your model), you can feed images of any size into your trained network.
+1x1 convolution helped in reducing the dimensionality of the layer. A fully-connected layer of the same size would result in the same number of features. However, replacement of fully connected layers with convolutional layers presents an added advantage that during inference (testing your model), you can feed images of any size into your trained network.
 
-Let's use the first spacial technique in SCNs by replacing a fully connected layer with one by one convolutional layers.
-This will result in the output value with tensor will remain 4D instead of flattening to 2D, so spatial information will be preserved.
+Replacing a fully connected layer with 1x1 convolutional layers will result in the output value with tensor will remain 4D instead of flattening to 2D, so spatial information will be preserved.
 
 The output of the convolution operation is the result of sweeping the kernel over the input with the sliding window and performing element wise multiplication and summation.
 
 The number of kernels is equivalent to the number of outputs in a fully connected layer. Similarly, the number of weights in each kernel is equivalent to the number of inputs in the fully connected layer. Effectively, this turns convolutions into a matrix multiplication with spatial information.
+
+### Separable Convolutions
+The Encoder for our FCN essentially require separable convolution layers. The 1x1 convolution layer in the FCN, however, is a regular convolution. Implementations for both are provided for our use. Each includes batch normalization with the ReLU activation function applied to the layers.
+
+### Bilinear Upsampling
+The helper function implements the bilinear upsampling layer. Upsampling by a factor of 2 is generally recommended. Upsampling is used in the decoder block of the FCN.
 
 ## 4. Build the Model 
 
