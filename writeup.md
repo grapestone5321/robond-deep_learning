@@ -30,28 +30,18 @@ The Encoder for our FCN essentially require separable convolution layers. The 1x
 The helper function implements the bilinear upsampling layer. Upsampling by a factor of 2 is generally recommended. Upsampling is used in the decoder block of the FCN.
 
 ### 1x1 Convolutions
-we covered how, in TensorFlow, the output shape of a convolutional layer is a 4D tensor. However, when we wish to feed the output of a convolutional layer into a fully connected layer, we flatten it into a 2D tensor. This results in the loss of spatial information, because no information about the location of the pixels is preserved.
+We covered how, in TensorFlow, the output shape of a convolutional layer is a 4D tensor. However, when we wish to feed the output of a convolutional layer into a fully connected layer, we flatten it into a 2D tensor. This results in the loss of spatial information, because no information about the location of the pixels is preserved.
 
 We can avoid that by using 1x1 convolutions.
 
-A 1x1 convolution is essentially convolving with a set of filters of dimensions:
-- 1x1xfilter_size (HxWxD),
-- stride = 1, and 
-- zero (same) padding. 
-
-A 1x1 convolution is applied to the output of a regular convolution. Let's assume that the regular convolution output is of dimensions 7x7x20 (HxWxD). These dimensions become the input to the 1x1 convolution with a filter depth of 5. Then the dimension of the output layer of the 1x1 convolution is 7x7x5.
-
 1x1 convolution helped in reducing the dimensionality of the layer. A fully-connected layer of the same size would result in the same number of features. However, replacement of fully-connected layers with convolutional layers presents an added advantage that during inference (testing your model), you can feed images of any size into your trained network.
 
-you'll learn how to rewrite a dense layer, tf.layers.dense as a convolutional layer, tf.layers.conv2d. The underlying math will be the same, but the spatial information will be preserved allowing seamless use of future convolutional layers.
+Let's use the first spacial technique in SCNs by replacing a fully connected layer with one by one convolutional layers.
+This will result in the output value with tensor will remain 4D instead of flattening to 2D, so spatial information will be preserved.
 
-The correct use is tf.layers.conv2d(x, num_outputs, 1, 1, weights_initializer=custom_init). 
-- num_outputs defines the number of output channels or kernels
-- The third argument is the kernel size, which is 1.
-- The fourth argument is the stride, we set this to 1.
-- We use the custom initializer so the weights in the dense and convolutional layers are identical.
+The output of the convolution operation is the result of sweeping the kernel over the input with the sliding window and performing element wise multiplication and summation.
 
-This results in the a matrix multiplication operation that preserves spatial information.
+The number of kernels is equivalent to the number of outputs in a fully connected layer. Similarly, the number of weights in each kernel is equivalent to the number of inputs in the fully connected layer. Effectively, this turns convolutions into a matrix multiplication with spatial information.
 
 ## 4. Build the Model 
 
