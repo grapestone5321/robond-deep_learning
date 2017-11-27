@@ -3,8 +3,10 @@
 ## 1. Introduction
 
 ### Deep Learning Project ##
-
 In this project, you will train a deep neural network to identify and track a target in simulation. So-called “follow me” applications like this are key to many fields of robotics and the very same techniques you apply here could be extended to scenarios like advanced cruise control in autonomous vehicles or human-robot collaboration in industry.
+
+### Semantic segmentation
+Semantic segmentation is the task of assigning meaning to part of an object. This can be done at the pixel level where we assign each pixel to a target class such as road, car, pedestrian, sign, or any number of other classes. Semantic segmentation helps us derive valuable information about every pixel in the image rather than just slicing sections into bounding boxes. This is a field known as scene understanding and it's particulaly relevant to autonomous vehicles. Full scene understanding help with perception, which enables vehicles to make decisions.
 
 ### Implement the Segmentation Network
 1. Download the training dataset from above and extract to the project `data` directory.
