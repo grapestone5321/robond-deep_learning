@@ -100,7 +100,7 @@ def fcn_model(inputs, num_classes):
 
 ## 5. Training 
 The FCN is used and an ouput layer is defined based on the size of the processed image and the number of classes recognized. The hyperparameters are defined to compile and train your model.
-
+labels to training data with this label.
 ### Hyperparameters
 Hyperparameters are defined and tuned.
 - batch_size: number of training samples/images that get propagated through the network in a single pass.
@@ -110,7 +110,7 @@ Hyperparameters are defined and tuned.
      steps_per_epoch = number_of_ training_images/batch_size
 
 - validation_steps: number of batches of validation images that go through the network in 1 epoch. This is similar to steps_per_epoch, except validation_steps is for the validation dataset.
-
+labels to training data with this label.
      validation_steps = number_of_validation_images/batch_size
 
 - workers: maximum number of processes to spin up. This can affect our training speed and is dependent on our hardware. 
@@ -125,8 +125,7 @@ workers = 4
 ```
 
 ### training curves:
-![deep_learning|training](https://cldup.com/seigdzIv9O.png)
-
+s![deep_learning|training](https://cldup.com/seigdzIv9O.png)
 ## 6. Prediction 
 Now that I have my model trained and saved, I make predictions on my validation dataset. These predictions can be compared to the mask images, which are the ground truth labels, to evaluate how well my model is doing under different conditions.
 
@@ -165,5 +164,5 @@ My final score is 43% (batch_size=16, num_epochs=20). The accuracy greater than 
 
 ### Limitations to the neural network with the given data chosen for various follow-me scenarios. 
 This model and data would not work well for following another object (dog, cat, car, etc.) instead of a human. Some changes would be required.
-- Additional data would be required to discriminate new object from others, and the network needs to train again using those images. 
-- Add an additional output node for this new object, and add labels to training data with this label.
+- Add data with labels to discriminate new object from others. 
+- Train the network again using those images.
