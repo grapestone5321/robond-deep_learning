@@ -166,3 +166,8 @@ My final score is 43% (batch_size=16, num_epochs=20). The accuracy greater than 
 This model and data would not work well for following another object (dog, cat, car, etc.) instead of a human. Some changes would be required.
 - Add data with labels to discriminate new object from others. 
 - Train the network again using those images.
+
+### References
+[1] Udacity, Robotics Nanodegree Program, Part 6 Deep Learning.
+
+[2] https://github.com/udacity/RoboND-DeepLearning-Project
