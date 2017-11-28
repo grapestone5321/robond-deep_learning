@@ -102,18 +102,22 @@ def fcn_model(inputs, num_classes):
 The FCN is used and an ouput layer is defined based on the size of the processed image and the number of classes recognized. The hyperparameters are defined to compile and train your model.
 labels to training data with this label.
 ### Hyperparameters
-Hyperparameters are defined and tuned.
+Hyperparameters are defined and tuned. They are optimized via trial and error.
 - batch_size: number of training samples/images that get propagated through the network in a single pass.
-- num_epochs: number of times the entire training dataset gets propagated through the network.
+- num_epochs: number of times the entire training dataset gets propagated through the network.     
 - steps_per_epoch: number of batches of training images that go through the network in 1 epoch. One recommended value to try would be based on the total number of images in training dataset divided by the batch_size.
-
-     steps_per_epoch = number_of_ training_images/batch_size
-
 - validation_steps: number of batches of validation images that go through the network in 1 epoch. This is similar to steps_per_epoch, except validation_steps is for the validation dataset.
 labels to training data with this label.
+
      validation_steps = number_of_validation_images/batch_size
 
 - workers: maximum number of processes to spin up. This can affect our training speed and is dependent on our hardware. 
+
+Batch size 16 obtains the higher final score in comparison to Batch size 32. Epoch needs 20 iterations to get enough accuracy. Learning rate 0.005 is more stable than 0.05 and improves the accuracy faster than 0.0005.
+
+steps_per_epoch = number_of_ training_images/batch_size
+
+validation_steps = number_of_validation_images/batch_size
 
 ```
 learning_rate = 0.005
