@@ -140,13 +140,7 @@ The predictions are written to files and return paths to the appropriate directo
 ## 7. Evaluation 
 My model is evaluated. Several different scores are included to evaluate my model under the different conditions discussed during the Prediction step.
 
-### Scoring
-To score the network on the Follow Me task, two types of error are measured. First the intersection over the union for the pixelwise classifications is computed for the target channel. In addition to this we determine whether the network detected the target person or not. If more then 3 pixels have probability greater then 0.5 of being the target person then this counts as the network guessing the target is in the image. We determine whether the target is actually in the image by whether there are more then 3 pixels containing the target in the label mask.
-
-Using the above the number of detection true_positives, false positives, false negatives are counted. 
-
-**How the Final score is Calculated**
-
+### How the Final score is Calculated
 The final score is the pixelwise `average_IoU*(n_true_positive/(n_true_positive+n_false_positive+n_false_negative))` on data similar to that provided in sample_evaulation_data
 
 ### The neural network achieves a minimum level of accuracy for the network implemented: 
