@@ -108,9 +108,6 @@ Hyperparameters are defined and tuned. They are optimized via trial and error.
 - steps_per_epoch: number of batches of training images that go through the network in 1 epoch. One recommended value to try would be based on the total number of images in training dataset divided by the batch_size.
 - validation_steps: number of batches of validation images that go through the network in 1 epoch. This is similar to steps_per_epoch, except validation_steps is for the validation dataset.
 labels to training data with this label.
-
-     validation_steps = number_of_validation_images/batch_size
-
 - workers: maximum number of processes to spin up. This can affect our training speed and is dependent on our hardware. 
 
 Batch size 16 obtains the higher final score in comparison to Batch size 32. Epoch needs 20 iterations to get enough accuracy. Learning rate 0.005 is more stable than 0.05 and improves the accuracy faster than 0.0005.
