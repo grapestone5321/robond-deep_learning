@@ -58,6 +58,8 @@ The decoder block is comprised of three parts:
 ### Bilinear Upsampling
 The helper function implements the bilinear upsampling layer. Upsampling by a factor of 2 is generally recommended. Upsampling is used in the decoder block of the FCN.
 
+Transposed convolutions are one way of upsampling layers to higher dimensions or resolutions. Bilinear upsampling is a resampling technique that utilizes the weighted average of four nearest known pixels, located diagonally to a given pixel, to estimate a new pixel intensity value. The weighted average is usually distance dependent. Let's consider the scenario where you have 4 known pixel values, so essentially a 2x2 grayscale image. This image is required to be upsampled to a 4x4 image. The bilinear upsampling method will try to fill out all the remaining pixel values via interpolation.
+
 ### Skip connections
 One effect of convolutions or encoding in general is you narrow down the scope by looking closely at some picture and lose the bigger as a result. So even if we were to decode the output of the encoder back to the original image size, some information has been lost.
 
