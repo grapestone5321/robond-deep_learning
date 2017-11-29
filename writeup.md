@@ -70,7 +70,7 @@ There are three steps:
 
 ![deep_learning|FCN](https://cldup.com/yJucQW56cm.png)
 
-I used three layers for encoder and decoder. Three layers seem to be sufficient to obtain the target score.
+I apply three layers for encoder/decoder model with  32->64->128 filters for encoder, and 128->64->32 filters for the decoder. This model is found to be optimal to obtain the target score.
 
 ```
 def fcn_model(inputs, num_classes):
