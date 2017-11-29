@@ -47,6 +47,7 @@ The Encoder for our FCN essentially require separable convolution layers. The 1x
 The decoder block is comprised of three parts:
 - A bilinear upsampling layer using the upsample_bilinear() function. The current recommended factor for upsampling is set to 2.
 - A layer concatenation step. This step is similar to skip connections. I concatenate the upsampled small_ip_layer and the large_ip_layer.
+
 - Some (one or two) additional separable convolution layers to extract some more spatial information from prior layers.
 
 ### Bilinear Upsampling
@@ -66,6 +67,8 @@ There are three steps:
 - Add encoder blocks to build the encoder layers.
 - Add a 1x1 Convolution layer using the conv2d_batchnorm() function. 1x1 Convolutions require a kernel and stride of 1.
 - Add decoder blocks for the decoder layers.
+
+![deep_learning|FCN](https://cldup.com/wbwKbPM8uJ.png)
 
 I used three layers for encoder and decoder. Three layers seem to be sufficient to obtain the target score.
 
