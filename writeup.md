@@ -34,12 +34,6 @@ The output of the convolution operation is the result of sweeping the kernel ove
 
 The number of kernels is equivalent to the number of outputs in a fully connected layer. Similarly, the number of weights in each kernel is equivalent to the number of inputs in the fully connected layer. Effectively, this turns convolutions into a matrix multiplication with spatial information.
 
-### Separable Convolutions
-The Encoder for our FCN essentially require separable convolution layers. The 1x1 convolution layer in the FCN, however, is a regular convolution. Implementations for both are provided for our use. Each includes batch normalization with the ReLU activation function applied to the layers.
-
-### Bilinear Upsampling
-The helper function implements the bilinear upsampling layer. Upsampling by a factor of 2 is generally recommended. Upsampling is used in the decoder block of the FCN.
-
 ## 4. Build the Model 
 
 ![deep_learning|FCN](https://cldup.com/wbwKbPM8uJ.png)
@@ -52,11 +46,17 @@ An FCN is built to train a model to detect and locate the hero target within an 
 ### Encoder Block
 An encoder block includes a separable convolution layer using the separable_conv2d_batchnorm() function. The filters parameter defines the size or depth of the output layer. For example, 32 or 64.
 
+### Separable Convolutions
+The Encoder for our FCN essentially require separable convolution layers. The 1x1 convolution layer in the FCN, however, is a regular convolution. Implementations for both are provided for our use. Each includes batch normalization with the ReLU activation function applied to the layers.
+
 ### Decoder Block
 The decoder block is comprised of three parts:
 - A bilinear upsampling layer using the upsample_bilinear() function. The current recommended factor for upsampling is set to 2.
 - A layer concatenation step. This step is similar to skip connections. I concatenate the upsampled small_ip_layer and the large_ip_layer.
 - Some (one or two) additional separable convolution layers to extract some more spatial information from prior layers.
+
+### Bilinear Upsampling
+The helper function implements the bilinear upsampling layer. Upsampling by a factor of 2 is generally recommended. Upsampling is used in the decoder block of the FCN.
 
 ### Model
 My FCN architecture is built.
