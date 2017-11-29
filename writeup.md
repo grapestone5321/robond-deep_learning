@@ -24,15 +24,9 @@ While doing the convolution, they preserve the spatial information throughout th
 ### 1x1 Convolutions
 We covered how, in TensorFlow, the output shape of a convolutional layer is a 4D tensor. However, when we wish to feed the output of a convolutional layer into a fully connected layer, we flatten it into a 2D tensor. This results in the loss of spatial information, because no information about the location of the pixels is preserved.
 
-We can avoid that by using 1x1 convolutions.
-
-1x1 convolution helped in reducing the dimensionality of the layer. A fully-connected layer of the same size would result in the same number of features. However, replacement of fully connected layers with convolutional layers presents an added advantage that during inference (testing your model), you can feed images of any size into your trained network.
-
 Replacing a fully connected layer with 1x1 convolutional layers will result in the output value with tensor will remain 4D instead of flattening to 2D, so spatial information will be preserved.
 
-The output of the convolution operation is the result of sweeping the kernel over the input with the sliding window and performing element wise multiplication and summation.
-
-The number of kernels is equivalent to the number of outputs in a fully connected layer. Similarly, the number of weights in each kernel is equivalent to the number of inputs in the fully connected layer. Effectively, this turns convolutions into a matrix multiplication with spatial information.
+The output of the convolution operation is the result of sweeping the kernel over the input with the sliding window and performing element wise multiplication and summation. The number of kernels is equivalent to the number of outputs in a fully connected layer. Similarly, the number of weights in each kernel is equivalent to the number of inputs in the fully connected layer. Effectively, this turns convolutions into a matrix multiplication with spatial information.
 
 ## 4. Build the Model 
 
