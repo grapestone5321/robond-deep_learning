@@ -103,12 +103,6 @@ Hyperparameters are defined and tuned. They are optimized via trial and error.
 labels to training data with this label.
 - workers: maximum number of processes to spin up. This can affect our training speed and is dependent on our hardware. 
 
-Learning rate 0.005 is more stable than 0.05 and improves the accuracy faster than 0.0005. Batch size 16 obtains the higher final score in comparison to Batch size 32. Epoch needs 20 iterations to get enough accuracy.
-
-steps_per_epoch = number_of_ training_images/batch_size
-
-validation_steps = number_of_validation_images/batch_size
-
 ```
 learning_rate = 0.005
 batch_size = 16
@@ -117,6 +111,12 @@ steps_per_epoch = 300
 validation_steps = 100
 workers = 4
 ```
+
+Learning rate 0.005 is more stable than 0.05 and improves the accuracy faster than 0.0005. Batch size 16 obtains the higher final score in comparison to Batch size 32. Epoch needs 20 iterations to get enough accuracy.
+
+steps_per_epoch = number_of_ training_images/batch_size
+
+validation_steps = number_of_validation_images/batch_size
 
 ### training curves:
 ![deep_learning|training](https://cldup.com/seigdzIv9O.png)
