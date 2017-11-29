@@ -58,6 +58,13 @@ The decoder block is comprised of three parts:
 ### Bilinear Upsampling
 The helper function implements the bilinear upsampling layer. Upsampling by a factor of 2 is generally recommended. Upsampling is used in the decoder block of the FCN.
 
+### Skip connections
+One effect of convolutions or encoding in general is you narrow down the scope by looking closely at some picture and lose the bigger as a result. So even if we were to decode the output of the encoder back to the original image size, some information has been lost.
+
+Skip connection are a way of retraining the information easily. The way skip conection work is by connectiog the output of one layer to a non-ajacent layer.
+
+The output of the pooling layer from the encoders combine with the current layers output using the element-wise addition operation. The result is bent into the next layer. These skip connections allow the network to use information from multiple resolutions. As a result, the network is able to make more precise segmentation decisions.
+
 ### Model
 My FCN architecture is built.
 
