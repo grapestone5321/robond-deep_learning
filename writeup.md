@@ -68,9 +68,11 @@ There are three steps:
 - Add a 1x1 Convolution layer using the conv2d_batchnorm() function. 1x1 Convolutions require a kernel and stride of 1.
 - Add decoder blocks for the decoder layers.
 
+The encoder portion is a convolution network that reduces to a deeper 1x1 convolution layer, in contrast to a flat fully connected layer that would be used for basic classification of images. This difference has the effect of preserving spacial information from the image. 
+
 ![deep_learning|FCN](https://cldup.com/yJucQW56cm.png)
 
-I apply three layers for encoder/decoder model with  32->64->128 filters for encoder, and 128->64->32 filters for the decoder. This model is found to be optimal to obtain the target score.
+I apply three layers for encoder/decoder model with  32->64->128 filters for encoder, and 128->64->32 filters for the decoder. This model is found to be proper to obtain the target score.
 
 ```
 def fcn_model(inputs, num_classes):
