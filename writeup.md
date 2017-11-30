@@ -37,6 +37,9 @@ An FCN is built to train a model to detect and locate the hero target within an 
 - Create a decoder_block 
 - Build the FCN consisting of encoder block(s), a 1x1 convolution, and decoder block(s). This step requires experimentation with different numbers of layers and filter sizes to build your model.
 
+The predictions are written to files and return paths to the appropriate directories. Now lets look at my predictions, and compare them to the ground truth labels and original images. Some sample images are visualized from the predictions in the validation set.
+
+
 ### Encoder Block
 An encoder block includes a separable convolution layer using the separable_conv2d_batchnorm() function. The filters parameter defines the size or depth of the output layer. For example, 32 or 64.
 
@@ -133,8 +136,6 @@ There are three different predictions available from the helper code provided:
 - patrol_with_targ: Test how well the network can detect the hero from a distance.
 - patrol_non_targ: Test how often the network makes a mistake and identifies the wrong person as the target.
 - following_images: Test how well the network can identify the target while following them.
-
-The predictions are written to files and return paths to the appropriate directories. Now lets look at my predictions, and compare them to the ground truth labels and original images. Some sample images are visualized from the predictions in the validation set.
 
 ### images while following the target:
 ![deep_learning|following_the_target](https://cldup.com/rHDoHE4DeT.png)
