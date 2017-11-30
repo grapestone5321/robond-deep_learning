@@ -41,6 +41,9 @@ The encoder portion is a convolution network that reduces to a deeper 1x1 convol
 
 Such an architecture should be used when we want to assign meaning to part of an object or to  implement semantic segmentation. Additionally, since convolutioal operations fundamentally don't care about the size of the input, a fully convolutional network will work on images of any size.
 
+even if we were to decode the output of the encoder back to the original image size, some information has been lost.
+
+Skip connection are a way of retraining the information
 ### Encoder Block
 An encoder block includes a separable convolution layer using the separable_conv2d_batchnorm() function. The filters parameter defines the size or depth of the output layer. For example, 32 or 64.
 
