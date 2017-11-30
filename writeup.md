@@ -39,7 +39,7 @@ An FCN is built to train a model to detect and locate the hero target within an 
 
 The encoder portion is a convolution network that reduces to a deeper 1x1 convolution layer, in contrast to a flat fully connected layer that would be used for basic classification of images. This difference has the effect of preserving spacial information from the image. 
 
-Such an architecture should be used when we want to assign meaning to part of an object or to  implement semantic segmentation.
+Such an architecture should be used when we want to assign meaning to part of an object or to  implement semantic segmentation. Additionally, since convolutioal operations fundamentally don't care about the size of the input, a fully convolutional network will work on images of any size.
 
 ### Encoder Block
 An encoder block includes a separable convolution layer using the separable_conv2d_batchnorm() function. The filters parameter defines the size or depth of the output layer. For example, 32 or 64.
