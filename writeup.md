@@ -41,6 +41,8 @@ The encoder portion is a convolution network that reduces to a deeper 1x1 convol
 
 We can create decoder of FCN's using transposed convolution. A transpose convolution is essentially a reverse convolution in which the forward and the backward passes are swapped.
 
+Transposed Convolutions help in upsampling the previous layer to a desired resolution or dimension.
+
 Such an architecture should be used when we want to assign meaning to part of an object or to  implement semantic segmentation. Additionally, since convolutioal operations fundamentally don't care about the size of the input, a fully convolutional network will work on images of any size.
 
 even if we were to decode the output of the encoder back to the original image size, some information has been lost.
