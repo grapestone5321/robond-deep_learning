@@ -37,17 +37,12 @@ An FCN is built to train a model to detect and locate the hero target within an 
 - Create a decoder_block 
 - Build the FCN consisting of encoder block(s), a 1x1 convolution, and decoder block(s). This step requires experimentation with different numbers of layers and filter sizes to build your model.
 
-The encoder portion is a convolution network that reduces to a deeper 1x1 convolution layer, in contrast to a flat fully connected layer that would be used for basic classification of images. This difference has the effect of preserving spacial information from the image. 
+We are encoding/decoding the image. The encoder portion is a convolution network that reduces to a deeper 1x1 convolution layer, in contrast to a flat fully connected layer that would be used for basic classification of images. This difference has the effect of preserving spacial information from the image. The decoder of FCN's is created using transposed convolution. A transpose convolution is essentially a reverse convolution in which the forward and the backward passes are swapped. Transposed Convolutions help in upsampling the previous layer to a desired resolution or dimension.
 
-We can create decoder of FCN's using transposed convolution. A transpose convolution is essentially a reverse convolution in which the forward and the backward passes are swapped.
+Such an architecture should be used when we want to assign meaning to part of an object or to implement semantic segmentation. 
 
-Transposed Convolutions help in upsampling the previous layer to a desired resolution or dimension.
+This architecture is useful to work on images of any size because convolutioal operations fundamentally don't care about the size of the input. However, a problem might arise. Even if we were to decode the output of the encoder back to the original image size, some information has been lost. Skip connection technique is one of the solutions as I describe below.
 
-Such an architecture should be used when we want to assign meaning to part of an object or to  implement semantic segmentation. Additionally, since convolutioal operations fundamentally don't care about the size of the input, a fully convolutional network will work on images of any size.
-
-even if we were to decode the output of the encoder back to the original image size, some information has been lost.
-
-Skip connection are a way of retraining the information
 ### Encoder Block
 An encoder block includes a separable convolution layer using the separable_conv2d_batchnorm() function. The filters parameter defines the size or depth of the output layer. For example, 32 or 64.
 
@@ -69,7 +64,7 @@ Transposed convolutions are one way of upsampling layers to higher dimensions or
 ### Skip connections
 One effect of convolutions or encoding in general is you narrow down the scope by looking closely at some picture and lose the bigger as a result. So even if we were to decode the output of the encoder back to the original image size, some information has been lost.
 
-Skip connection are a way of retraining the information easily. The way skip conection work is by connectiog the output of one layer to a non-ajacent layer. The output of the pooling layer from the encoders combine with the current layers output using the element-wise addition operation. The result is bent into the next layer. These skip connections allow the network to use information from multiple resolutions. As a result, the network is able to make more precise segmentation decisions.
+Skip connections are a way of retraining the information easily. The way skip conection work is by connectiog the output of one layer to a non-ajacent layer. The output of the pooling layer from the encoders combine with the current layers output using the element-wise addition operation. The result is bent into the next layer. These skip connections allow the network to use information from multiple resolutions. As a result, the network is able to make more precise segmentation decisions.
 
 ### Model
 My FCN architecture is built.
