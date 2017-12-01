@@ -165,6 +165,10 @@ This model and data would not work well for following another object (dog, cat, 
 - Add data with labels to discriminate new object from others. 
 - Train the network again using those images.
 
+### Future Enhancements
+
+
+
 ## References
 [1] Udacity, Robotics Nanodegree Program, Part 6 Deep Learning.
 
