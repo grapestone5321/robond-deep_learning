@@ -97,8 +97,7 @@ def fcn_model(inputs, num_classes):
     
     x = decoder_layer3    
     
-    # The function returns the output layer of your model. "x" is the final layer obtained from the last decoder_block()
-    return layers.Conv2D(num_classes, 1, activation='softmax', padding='same')(x)
+    # The function returns the output layer of your model. "x" is the final layer obtained from the last decoder_block()    return layers.Conv2D(num_classes, 1, activation='softmax', padding='same')(x)
 ```
 
 ## 5. Training 
@@ -165,7 +164,7 @@ This model and data would not work well for following another object (dog, cat, 
 - Add data with labels to discriminate new object from others. 
 - Train the network again using those images.
 
-### Future Enhancements
+## 8. Future Enhancements
 
 
 
