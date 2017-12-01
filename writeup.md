@@ -165,16 +165,9 @@ This model and data would not work well for following another object (dog, cat, 
 - Train the network again using those images.
 
 ## 8. Future Enhancements
-A discussion on potential improvements should also be included for future enhancements to the network / parameters that could be used to increase accuracy, efficiency, etc. 
-
-It is not required to make such enhancements, but these enhancements should be explicitly stated. 
-
-### the network
-- More images in training/validation dataset
-
-
-### parameters
-- Epoch could use more iterations than 20 iterations that are used in this training. to improve accuracy.
+The neural network achieves a minimum level of accuracy. There are some potential improvements to increase accuracy. 
+- More images in training/validation dataset could be used.
+- More iterations in epoch could be used. 20 iterations are used in this training.
 
 ## References
 [1] Udacity, Robotics Nanodegree Program, Part 6 Deep Learning.
