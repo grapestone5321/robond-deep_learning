@@ -170,8 +170,11 @@ A discussion on potential improvements should also be included for future enhanc
 It is not required to make such enhancements, but these enhancements should be explicitly stated. 
 
 ### the network
+- More images in training/validation dataset
+
 
 ### parameters
+- Epoch could use more iterations than 20 iterations that are used in this training. to improve accuracy.
 
 ## References
 [1] Udacity, Robotics Nanodegree Program, Part 6 Deep Learning.
